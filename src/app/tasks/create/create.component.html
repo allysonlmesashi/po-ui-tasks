@@ -1,0 +1,22 @@
+<po-page-default>
+  <po-dynamic-form
+    #formCriarTarefa
+    [p-fields]="camposFormularioCriar"
+    (p-form)="getFormCriar($event)"
+  >
+  </po-dynamic-form>
+  <po-button
+    p-label="Cancelar"
+    class="po-md-2"
+    (p-click)="cancelarCriarTarefa()"
+    p-kind="secondary"
+  >
+  </po-button>
+  <po-button
+    p-label="Salvar"
+    class="po-md-2"
+    (p-click)="criarTarefa()"
+    p-kind="primary"
+  >
+  </po-button>
+</po-page-default>

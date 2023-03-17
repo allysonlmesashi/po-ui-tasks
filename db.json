@@ -1,0 +1,16 @@
+{
+  "tasks": [
+    {
+      "description": "Teste JSON",
+      "dueDate": "2023-01-01",
+      "finished": false,
+      "id": 1
+    },
+    {
+      "description": "Teste JSON",
+      "dueDate": "2023-01-01",
+      "finished": true,
+      "id": 2
+    }
+  ]
+}

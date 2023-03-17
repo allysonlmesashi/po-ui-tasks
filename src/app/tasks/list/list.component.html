@@ -1,0 +1,25 @@
+<po-page-default>
+  <po-button p-label="Nova Tarefa" (click)="navegarCriar()" p-kind="primary"></po-button>
+  <po-table
+    [p-actions-right]="true"
+    [p-actions]="actions"
+    [p-columns]="colunas"
+    [p-items]="items"
+    [p-striped]="true"
+    [p-hide-text-overflow]="true"
+  >
+  </po-table>
+</po-page-default>
+
+<po-loading-overlay
+    [hidden]="isFinished"
+    p-text="Carregando" >
+</po-loading-overlay>
+
+<po-modal #modalEditarTarefa p-title="Editar Tarefa" [p-primary-action]="editar" [p-secondary-action]="fecharEditar">
+  <po-dynamic-form #formEditTarefa [p-fields]="camposFormularioEditar" (p-form)="getFormEditar($event)" [p-value]="task"></po-dynamic-form>
+</po-modal>
+
+<po-modal #modalExcluirTarefa p-title="Excluir" [p-primary-action]="excluir" [p-secondary-action]="fecharExcluir">
+  <po-dynamic-form #formExcluirTarefa [p-fields]="camposFormularioExcluir" (p-form)="getFormExcluir($event)" [p-value]="task"></po-dynamic-form>
+</po-modal>
