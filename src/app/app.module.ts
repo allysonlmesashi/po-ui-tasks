@@ -1,26 +1,24 @@
+import { SharedModule } from './shared/module/shared/shared.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
-import { PoModule } from '@po-ui/ng-components';
-import { PoPageDynamicTableModule } from '@po-ui/ng-templates';
-
+import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+
+import { ToolbarModule } from './core/toolbar/toolbar.module';
 import { AppComponent } from './app.component';
-import { ListComponent } from './tasks/list/list.component';
-import { CreateComponent } from './tasks/create/create.component';
+import { HomeComponent } from './features/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListComponent,
-    CreateComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PoModule,
-    HttpClientModule,
-    PoPageDynamicTableModule
+    SharedModule,
+    RouterModule.forRoot([]),
+    ToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

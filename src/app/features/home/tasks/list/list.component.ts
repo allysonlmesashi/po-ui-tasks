@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { PoDynamicFormField, PoModalAction, PoModalComponent, PoTableAction, PoTableColumn, PoNotificationService } from '@po-ui/ng-components';
+import { PoBreadcrumb, PoDynamicFormField, PoModalAction, PoModalComponent, PoPageAction, PoTableAction, PoTableColumn, PoNotificationService } from '@po-ui/ng-components';
 
-import { TasksService } from './../tasks.service';
-import { Task } from '../../shared/models/task.model';
+import { TasksService } from '../shared/services/tasks.service';
+import { Task } from '../../../../shared/models/task.model';
 
 @Component({
   selector: 'app-list',
@@ -18,10 +18,19 @@ export class ListComponent implements OnInit {
   @ViewChild('modalEditarTarefa') modalEditarTarefa!: PoModalComponent;
   @ViewChild('modalExcluirTarefa') modalExcluirTarefa!: PoModalComponent;
 
-  actions: Array<PoTableAction> = [
+  actionsPage: Array<PoPageAction> = [
+    { label: 'Nova Tarefa', action: this.navegarCriar.bind(this) }
+  ];
+  actionsTable: Array<PoTableAction> = [
     { action: this.editarModal.bind(this), icon: 'po-icon-edit', label: 'Editar' },
     { action: this.excluirModal.bind(this), icon: 'po-icon-delete', label: 'Excluir' },
-    ];
+  ];
+  breadcrumb: PoBreadcrumb = {
+    items: [
+      { label: 'Home', link: '/' },
+      { label: 'Tarefas' }
+    ]
+  };
   camposFormularioEditar: Array<PoDynamicFormField> = [
     { property: 'description', label: 'Descrição', placeholder: 'Digite a descrição', required: true, minLength: 4, maxLength: 50, gridColumns: 12, gridSmColumns: 12 },
     { property: 'dueDate', label: 'Data de conclusão', placeholder: 'Informe a data', type: 'date', format: 'dd/mm/yyyy', required: true, gridColumns: 12, gridSmColumns: 12 },

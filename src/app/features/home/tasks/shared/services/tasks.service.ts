@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { PoTableColumn } from '@po-ui/ng-components';
 
-import { environment } from 'src/environments/environment';
-import { Task } from '../shared/models/task.model';
+import { environment } from '../../../../../../../src/environments/environment';
+import { Task } from '../../../../../shared/models/task.model';
 
 @Injectable({
   providedIn: 'root'

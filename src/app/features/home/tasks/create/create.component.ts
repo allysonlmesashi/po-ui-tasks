@@ -1,10 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { PoDynamicFormField, PoNotificationService } from '@po-ui/ng-components';
+import { PoBreadcrumb, PoDynamicFormField, PoNotificationService } from '@po-ui/ng-components';
 
-import { TasksService } from './../tasks.service';
-import { Task } from '../../shared/models/task.model';
+import { TasksService } from '../shared/services/tasks.service';
+import { Task } from '../../../../shared/models/task.model';
 
 @Component({
   selector: 'app-create',
@@ -15,6 +15,12 @@ export class CreateComponent {
 
   @ViewChild('formCriarTarefa') formCriarTarefa!: NgForm;
 
+  breadcrumb: PoBreadcrumb = {
+    items: [
+      { label: 'Home', link: '/' },
+      { label: 'Tarefas' }
+    ]
+  };
   camposFormularioCriar: Array<PoDynamicFormField> = [
     { property: 'description', label: 'Descrição', placeholder: 'Digite a descrição', required: true, minLength: 4, maxLength: 50, gridColumns: 12, gridSmColumns: 12 },
     { property: 'dueDate', label: 'Data de Conclusão', placeholder: 'Informe a data de conclusão', type: 'date', format: 'dd/mm/yyyy', required: true, gridColumns: 12, gridSmColumns: 12 }

@@ -1,8 +1,7 @@
-<po-page-default>
-  <po-button p-label="Nova Tarefa" (click)="navegarCriar()" p-kind="primary"></po-button>
+<po-page-default [p-actions]="actionsPage" [p-breadcrumb]="breadcrumb" p-title="Tarefas">
   <po-table
     [p-actions-right]="true"
-    [p-actions]="actions"
+    [p-actions]="actionsTable"
     [p-columns]="colunas"
     [p-items]="items"
     [p-striped]="true"
