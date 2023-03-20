@@ -1,6 +1,6 @@
 # PoUiTasks
 
-Projeto gerado [Angular CLI](https://github.com/angular/angular-cli) version 15.2.2. como hands-on da biblioteca PO UI do Angular que permite a listagem e criação de tarefas.
+Projeto gerado com [Angular CLI](https://github.com/angular/angular-cli) version 15.2.2. como hands-on da biblioteca PO UI do Angular que permite a listagem e criação de tarefas.
 
 ## JSON Server
 
