@@ -1,0 +1,16 @@
+<po-page-default [p-actions]="actionsPage" [p-breadcrumb]="breadcrumb" p-title="Tarefas">
+  <po-table
+    [p-actions-right]="true"
+    [p-columns]="colunas"
+    [p-items]="items"
+    [p-striped]="true"
+    [p-hide-text-overflow]="true"
+  >
+  </po-table>
+</po-page-default>
+
+<po-loading-overlay
+    [hidden]="isFinished"
+    p-text="Carregando" >
+</po-loading-overlay>
+

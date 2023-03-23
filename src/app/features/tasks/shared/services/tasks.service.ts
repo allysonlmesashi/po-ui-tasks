@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { PoTableColumn } from '@po-ui/ng-components';
 
-import { environment } from '../../../../../../../src/environments/environment';
-import { Task } from '../../../../../shared/models/task.model';
+import { environment } from '../../../../../../src/environments/environment';
+import { Task } from '../../../../shared/models/task.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,17 +17,12 @@ export class TasksService {
     private httpClient: HttpClient
   ) { }
 
-  getColumns(): Array<PoTableColumn> {
-    return [
-      { property: 'description', label: 'Descrição' },
-      { property: 'dueDate', label: 'Data de Conclusão', type: 'date' },
-      { property: 'finished', label: 'Concluído?', type: 'boolean'}
-    ];
-
-  }
-
   getTasks(): Observable<Task[]> {
     return this.httpClient.get<Task[]>(this.APIRest);
+  }
+
+  getTaskById(id: string): Observable<Task> {
+    return this.httpClient.get<Task>(`${this.APIRest}/${id}`);
   }
 
   addTask(task: Task): Observable<Task> {

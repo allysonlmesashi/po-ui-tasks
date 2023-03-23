@@ -1,17 +1,19 @@
 <po-page-edit
-  p-title="Nova Tarefa"
+  [p-title]="title"
   [p-breadcrumb]="breadcrumb"
   (p-cancel)="cancelarCriarTarefa()"
-  (p-save)="criarTarefa(false)"
-  (p-save-new)="criarTarefa(true)"
-  [p-disable-submit]="isDisabledButton">
+  (p-save)="salvarTarefa(false)"
+  (p-save-new)="saveOrDelete()"
+  [p-disable-submit]="isDisabledButton"
+  [p-literals]="customLiterals">
   <po-loading-overlay [hidden]="!isLoading">
   </po-loading-overlay>
   <po-container class="po-row po-xl-12 po-lg-12 po-md-12 po-sm-12">
     <po-dynamic-form
       #formCriarTarefa
-      [p-fields]="camposFormularioCriar"
-      (p-form)="getFormCriar($event)"
+      [p-fields]="camposFormulario"
+      (p-form)="getForm($event)"
+      [p-value]="task"
     >
     </po-dynamic-form>
   </po-container>

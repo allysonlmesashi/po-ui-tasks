@@ -6,7 +6,7 @@ import { HomeComponent } from './features/home/home.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'index.html', component: HomeComponent },
-  { path: 'tasks', loadChildren: () => import('./features/home/tasks/tasks.module').then(m => m.TasksModule)}
+  { path: 'tasks', loadChildren: () => import('./features/tasks/tasks.module').then(m => m.TasksModule)}
 ];
 
 @NgModule({
