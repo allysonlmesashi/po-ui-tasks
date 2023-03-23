@@ -1,22 +1,18 @@
-<po-page-default [p-breadcrumb]="breadcrumb">
-  <po-dynamic-form
-    #formCriarTarefa
-    [p-fields]="camposFormularioCriar"
-    (p-form)="getFormCriar($event)"
-  >
-  </po-dynamic-form>
-  <po-button
-    p-label="Cancelar"
-    class="po-md-2"
-    (p-click)="cancelarCriarTarefa()"
-    p-kind="secondary"
-  >
-  </po-button>
-  <po-button
-    p-label="Salvar"
-    class="po-md-2"
-    (p-click)="criarTarefa()"
-    p-kind="primary"
-  >
-  </po-button>
-</po-page-default>
+<po-page-edit
+  p-title="Nova Tarefa"
+  [p-breadcrumb]="breadcrumb"
+  (p-cancel)="cancelarCriarTarefa()"
+  (p-save)="criarTarefa(false)"
+  (p-save-new)="criarTarefa(true)"
+  [p-disable-submit]="isDisabledButton">
+  <po-loading-overlay [hidden]="!isLoading">
+  </po-loading-overlay>
+  <po-container class="po-row po-xl-12 po-lg-12 po-md-12 po-sm-12">
+    <po-dynamic-form
+      #formCriarTarefa
+      [p-fields]="camposFormularioCriar"
+      (p-form)="getFormCriar($event)"
+    >
+    </po-dynamic-form>
+  </po-container>
+</po-page-edit>

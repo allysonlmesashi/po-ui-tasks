@@ -19,7 +19,7 @@ export class ListComponent implements OnInit {
   @ViewChild('modalExcluirTarefa') modalExcluirTarefa!: PoModalComponent;
 
   actionsPage: Array<PoPageAction> = [
-    { label: 'Nova Tarefa', action: this.navegarCriar.bind(this) }
+    { label: 'Nova Tarefa', action: this.goToCreate.bind(this) }
   ];
   actionsTable: Array<PoTableAction> = [
     { action: this.editarModal.bind(this), icon: 'po-icon-edit', label: 'Editar' },
@@ -162,8 +162,8 @@ export class ListComponent implements OnInit {
     this.dynamicFormExcluir = form;
   }
 
-  navegarCriar() {
-    this.router.navigate(['/tasks/create'])
+  goToCreate() {
+    this.router.navigate(['/tasks/new'])
   }
 
 }

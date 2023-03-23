@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ToolbarModule } from './core/toolbar/toolbar.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './features/home/home.component';
+import { PoTemplatesModule } from '@po-ui/ng-templates';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HomeComponent } from './features/home/home.component';
     AppRoutingModule,
     SharedModule,
     RouterModule.forRoot([]),
-    ToolbarModule
+    ToolbarModule,
+    PoTemplatesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

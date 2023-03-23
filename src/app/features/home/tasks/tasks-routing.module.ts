@@ -7,7 +7,7 @@ import { ListComponent } from './list/list.component';
 
 const routes: Routes = [
   { path: '', component: ListComponent },
-  { path: 'create', component: CreateComponent }
+  { path: 'new', component: CreateComponent }
 ];
 
 @NgModule({
