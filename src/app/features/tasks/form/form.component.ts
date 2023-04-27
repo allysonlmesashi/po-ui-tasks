@@ -28,7 +28,8 @@ export class FormComponent implements OnInit {
     { property: 'finished', label: 'Concluído', type: 'boolean', booleanTrue: 'Sim', booleanFalse: 'Não', disabled: true }
   ];
   customLiterals: PoPageEditLiterals = {
-    saveNew: 'Salvar e nova'
+    saveNew: 'Salvar e nova',
+    save: 'Salvar'
   };
   dynamicForm!: NgForm;
   isDisabledButton: boolean = false;

@@ -8,7 +8,7 @@
     },
     {
       "id": 2,
-      "description": "Teste JSON",
+      "description": "Teste Angular",
       "dueDate": "2023-01-01",
       "finished": true
     }

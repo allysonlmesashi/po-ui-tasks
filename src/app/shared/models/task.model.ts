@@ -1,6 +1,6 @@
 export interface Task {
   id?: number | string;
-  description: number | string;
+  description: string;
   finished: boolean,
   dueDate?: Date
 }

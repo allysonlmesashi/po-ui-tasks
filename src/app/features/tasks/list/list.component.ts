@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { PoBreadcrumb, PoPageAction, PoTableColumn } from '@po-ui/ng-components';
+import { PoBreadcrumb, PoPageAction, PoPageFilter, PoTableColumn } from '@po-ui/ng-components';
 
 import { TasksService } from '../shared/services/tasks.service';
 import { Task } from '../../../shared/models/task.model';
@@ -24,7 +24,12 @@ export class ListComponent implements OnInit {
   };
   colunas: Array<PoTableColumn> = [];
   dynamicFormExcluir!: NgForm;
+  filterSettings: PoPageFilter = {
+    action: this.filterAction.bind(this),
+    placeholder: 'Busca por descrição'
+  };
   items: Array<Task> = [];
+  itemsReturned: Array<Task> = [];
   isFinished: boolean = false;
   task: Task = {
     description: '',
@@ -38,17 +43,14 @@ export class ListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.colunas = this.getColumns();
+    this.colunas = this.taskService.getColumns();
+    const index = this.colunas.findIndex(coluna => coluna.type === 'link');
+    index >= 0 ? this.colunas[index].action = (row: string) => this.goToEdit(row) : undefined;
     this.getTasks();
   }
 
-  getColumns(): Array<PoTableColumn> {
-    return [
-      { property: 'id', label: 'ID', type: 'link', action: (row: string) => this.goToEdit(row) },
-      { property: 'description', label: 'Descrição' },
-      { property: 'dueDate', label: 'Data de Conclusão', type: 'date' },
-      { property: 'finished', label: 'Concluído?', type: 'boolean'}
-    ];
+  filterAction(filter: string) {
+    this.items = this.itemsReturned.filter(item => item.description.includes(filter));
   }
 
   getTasks() {
@@ -56,6 +58,7 @@ export class ListComponent implements OnInit {
     this.taskService.getTasks().subscribe(
       (response) => {
         this.items = response;
+        this.itemsReturned = [...this.items];
         this.isFinished = true;
       },
       error => {

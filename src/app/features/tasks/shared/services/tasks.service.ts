@@ -17,6 +17,15 @@ export class TasksService {
     private httpClient: HttpClient
   ) { }
 
+  getColumns(): Array<PoTableColumn> {
+    return [
+      { property: 'id', label: 'ID', type: 'link' },
+      { property: 'description', label: 'Descrição' },
+      { property: 'dueDate', label: 'Data de Conclusão', type: 'date' },
+      { property: 'finished', label: 'Concluído?', type: 'boolean'}
+    ];
+  }
+
   getTasks(): Observable<Task[]> {
     return this.httpClient.get<Task[]>(this.APIRest);
   }

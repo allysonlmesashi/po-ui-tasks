@@ -1,4 +1,9 @@
-<po-page-default [p-actions]="actionsPage" [p-breadcrumb]="breadcrumb" p-title="Tarefas">
+<po-page-list
+  [p-actions]="actionsPage"
+  [p-breadcrumb]="breadcrumb"
+  [p-filter]="filterSettings"
+  p-title="Tarefas">
+
   <po-table
     [p-actions-right]="true"
     [p-columns]="colunas"
@@ -7,7 +12,7 @@
     [p-hide-text-overflow]="true"
   >
   </po-table>
-</po-page-default>
+</po-page-list>
 
 <po-loading-overlay
     [hidden]="isFinished"
